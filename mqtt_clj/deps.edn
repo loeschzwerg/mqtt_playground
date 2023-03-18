@@ -1,0 +1,6 @@
+{:deps 
+ {clojurewerkz/machine_head {:mvn/version "1.0.0"}
+  org.clojure/core.async {:mvn/version "1.6.673"}
+  org.clojure/tools.logging {:mvn/version "1.2.4"}}
+ :jvm-opts ["-Dclojure.tools.logging.factory=clojure.tools.logging.impl/slf4j-factory"]
+}
