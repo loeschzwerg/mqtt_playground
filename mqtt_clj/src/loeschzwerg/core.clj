@@ -17,7 +17,7 @@
     (loop [nonce 0]
       (mqtt/publish connection topic (str "ping:" nonce))
       (log/infof "[producer/%s] ping:%s" topic nonce)
-      (Thread/sleep 100)
+      (Thread/sleep 1000)
       (recur (inc nonce)))))
 
 
@@ -26,7 +26,7 @@
   (start-consumer)
   (dotimes [_ 10]
     (future (start-producer)))
-  (Thread/sleep 1000)
+  (Thread/sleep 5000)
   (mqtt/disconnect-and-close connection)
   (log/warn "[main] Finishing...")
   0)
