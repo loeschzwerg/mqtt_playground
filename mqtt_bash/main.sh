@@ -5,7 +5,6 @@ trap "pkill -P $$" EXIT
 
 start_consumer () {
     trap "pkill mosquitto_sub" EXIT
-    SED_INPUT=
     mosquitto_sub -v -t "ping/#" | sed 's/^\([^ ]*\) \([^:]*\):\(.*\)/[consumer\/\1] Received \2:\3/g'
 }
 
